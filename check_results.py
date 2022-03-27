@@ -1,10 +1,11 @@
-def user_interface(options):
+def check_results(choices, player, computer):
     '''
-    function presenting options and asking for player feedback
-    returns integer.
+    function that checks who won.
+    returns string
     '''
-    for index, option in enumerate(options):
-        print(f'{index} = {option}')
-
-    user_input = int(input('What do you choose? '))
-    return user_input
+    if player == computer:
+        return 'It\'s a tie'
+    elif (player == 0 and computer == len(choices) - 1) or (
+            player > computer and not (player == len(choices) - 1 and computer == 0)):
+        return 'Player Won'
+    return 'Player Lost'
